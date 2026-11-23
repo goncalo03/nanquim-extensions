@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "extensions": [
+    {
+      "id": "exemplo-ptbr",
+      "name": "Nanquim Demo (PT-BR)",
+      "version": "1.1.0",
+      "file": "extensions/exemplo_ptbr.js",
+      "lang": "pt-BR",
+      "nsfw": false,
+      "description": "Demonstracao offline incluida no app. Busca, detalhes, capitulos e paginas locais.",
+      "minAppVersion": "0.1.0"
+    }
+  ]
+}
