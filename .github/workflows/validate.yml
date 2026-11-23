@@ -23,5 +23,16 @@ jobs:
             node --check "$file"
           done
 
+      - name: Validar extensões .pb
+        run: |
+          mkdir -p /tmp/pbcheck
+          for file in extensions/*.js; do
+            base=$(basename "$file" .js)
+            case "$base" in _*) continue ;; esac
+            cp "$file" "/tmp/pbcheck/$base.js"
+            node scripts/compile-pb.js "/tmp/pbcheck/$base.js"
+            cmp "extensions/$base.pb" "/tmp/pbcheck/$base.pb"
+          done
+
       - name: Validar índice e hashes
         run: node scripts/generate-index.js --check

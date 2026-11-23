@@ -29,11 +29,30 @@ A app valida o **SHA-256** do arquivo antes de instalar. Se o hash do `index.jso
 ├── catalog.json              # fonte da verdade dos metadados
 ├── index.json                # GERADO — não editar à mão
 ├── extensions/
-│   ├── exemplo_ptbr.js       # extensão de demonstração (funciona offline)
+│   ├── exemplo_ptbr.js       # fonte da extensão de demonstração
+│   ├── exemplo_ptbr.pb       # extensão compilada em Protocol Buffers
 │   └── _modelo.js            # modelo para novas extensões
-├── scripts/generate-index.js # gera/valida o index.json
+├── nanquim_extension.proto   # schema .proto da extensão
+├── scripts/
+│   ├── compile-pb.js         # compila .js → .pb
+│   └── generate-index.js     # gera/valida o index.json
 └── .github/workflows/        # CI: sintaxe + hashes
 ```
+
+## Extensões `.pb`
+
+As extensões publicadas neste repositório usam **Protocol Buffers** (`.pb`).
+O app lê o `.pb`, extrai o código JS do campo `code` e o executa no sandbox —
+o usuário nunca precisa lidar com o binário diretamente.
+
+Para gerar o `.pb` a partir de um `.js`:
+
+```bash
+node scripts/compile-pb.js extensions/sua-fonte.js
+```
+
+O schema está em `nanquim_extension.proto`. Campos: `id`, `name`, `version`,
+`lang`, `baseUrl`, `code`, `nsfw` e `format` (por enquanto, apenas `js`).
 
 ---
 

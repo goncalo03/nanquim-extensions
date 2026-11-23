@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package nanquim.extension.v1;
+
+// Extensão serializada em Protocol Buffers (.pb).
+// O campo `code` contém o código JS da extensão, executado no sandbox do app.
+message Extension {
+  string id = 1;
+  string name = 2;
+  string version = 3;
+  string lang = 4;
+  string base_url = 5;
+  string code = 6;
+  bool nsfw = 7;
+  // Por enquanto apenas "js" é suportado pelo Nanquim.
+  string format = 8;
+}
