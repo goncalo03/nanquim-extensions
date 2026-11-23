@@ -11,6 +11,17 @@
       "nsfw": false,
       "description": "Demonstracao offline incluida no app. Busca, detalhes, capitulos e paginas locais.",
       "minAppVersion": "0.1.0"
+    },
+    {
+      "id": "mangadex-ptbr",
+      "name": "MangaDex (PT-BR)",
+      "version": "1.0.0",
+      "file": "extensions/mangadex_ptbr.pb",
+      "sha256": "e290762490388a3af40aea542046697cf4c1b612bb8376db3b07b5ee9078c4ae",
+      "lang": "pt-BR",
+      "nsfw": false,
+      "description": "API publica do MangaDex com traducoes em pt-BR.",
+      "minAppVersion": "0.1.0"
     }
   ]
 }
